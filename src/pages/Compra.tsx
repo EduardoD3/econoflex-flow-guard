@@ -12,7 +12,14 @@ import { Link } from "react-router-dom";
 
 const Compra = () => {
   const [marca, setMarca] = useState("");
+  const [ano, setAno] = useState("");
   const [modelo, setModelo] = useState("");
+
+  // Gerar anos de 1990 até o ano atual
+  const anosDisponiveis = Array.from(
+    { length: new Date().getFullYear() - 1989 },
+    (_, i) => new Date().getFullYear() - i
+  );
 
   const marcas = {
     fiat: ["Uno", "Palio", "Strada", "Toro", "Argo", "Mobi", "Cronos"],
@@ -32,16 +39,13 @@ const Compra = () => {
   const modelosDisponiveis = marca ? marcas[marca as keyof typeof marcas] || [] : [];
 
   const handleComprar = () => {
-    if (!marca || !modelo) {
-      alert("Por favor, selecione a marca e o modelo do seu veículo.");
+    if (!marca || !ano || !modelo) {
+      alert("Por favor, preencha todos os campos do veículo.");
       return;
     }
     
-    const mensagem = `Olá! Quero comprar o ECONOFLEX para o meu ${marca.toUpperCase()} ${modelo}.`;
-    window.open(
-      `https://wa.me/5511999999999?text=${encodeURIComponent(mensagem)}`,
-      "_blank"
-    );
+    // Redirecionar para gateway de pagamento
+    window.location.href = `/checkout?marca=${encodeURIComponent(marca)}&ano=${encodeURIComponent(ano)}&modelo=${encodeURIComponent(modelo)}`;
   };
 
   return (
@@ -81,33 +85,55 @@ const Compra = () => {
               </h2>
               
               <div className="space-y-6">
-                {/* Marca */}
-                <div>
-                  <label className="block text-white font-medium mb-3">
-                    Marca do Veículo
-                  </label>
-                  <Select value={marca} onValueChange={(value) => {
-                    setMarca(value);
-                    setModelo(""); // Reset modelo quando marca muda
-                  }}>
-                    <SelectTrigger className="w-full h-12 bg-secondary border-white/20 text-secondary-foreground">
-                      <SelectValue placeholder="Selecione a marca" />
-                    </SelectTrigger>
-                    <SelectContent className="border-white/20">
-                      <SelectItem value="fiat">Fiat</SelectItem>
-                      <SelectItem value="volkswagen">Volkswagen</SelectItem>
-                      <SelectItem value="chevrolet">Chevrolet</SelectItem>
-                      <SelectItem value="ford">Ford</SelectItem>
-                      <SelectItem value="renault">Renault</SelectItem>
-                      <SelectItem value="hyundai">Hyundai</SelectItem>
-                      <SelectItem value="toyota">Toyota</SelectItem>
-                      <SelectItem value="honda">Honda</SelectItem>
-                      <SelectItem value="nissan">Nissan</SelectItem>
-                      <SelectItem value="jeep">Jeep</SelectItem>
-                      <SelectItem value="peugeot">Peugeot</SelectItem>
-                      <SelectItem value="citroen">Citroën</SelectItem>
-                    </SelectContent>
-                  </Select>
+                {/* Marca e Ano */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* Marca */}
+                  <div>
+                    <label className="block text-white font-medium mb-3">
+                      Marca do Veículo
+                    </label>
+                    <Select value={marca} onValueChange={(value) => {
+                      setMarca(value);
+                      setModelo(""); // Reset modelo quando marca muda
+                    }}>
+                      <SelectTrigger className="w-full h-12 bg-secondary border-white/20 text-secondary-foreground">
+                        <SelectValue placeholder="Selecione a marca" />
+                      </SelectTrigger>
+                      <SelectContent className="border-white/20">
+                        <SelectItem value="fiat">Fiat</SelectItem>
+                        <SelectItem value="volkswagen">Volkswagen</SelectItem>
+                        <SelectItem value="chevrolet">Chevrolet</SelectItem>
+                        <SelectItem value="ford">Ford</SelectItem>
+                        <SelectItem value="renault">Renault</SelectItem>
+                        <SelectItem value="hyundai">Hyundai</SelectItem>
+                        <SelectItem value="toyota">Toyota</SelectItem>
+                        <SelectItem value="honda">Honda</SelectItem>
+                        <SelectItem value="nissan">Nissan</SelectItem>
+                        <SelectItem value="jeep">Jeep</SelectItem>
+                        <SelectItem value="peugeot">Peugeot</SelectItem>
+                        <SelectItem value="citroen">Citroën</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  {/* Ano */}
+                  <div>
+                    <label className="block text-white font-medium mb-3">
+                      Ano do Veículo
+                    </label>
+                    <Select value={ano} onValueChange={setAno}>
+                      <SelectTrigger className="w-full h-12 bg-secondary border-white/20 text-secondary-foreground">
+                        <SelectValue placeholder="Selecione o ano" />
+                      </SelectTrigger>
+                      <SelectContent className="border-white/20">
+                        {anosDisponiveis.map((a) => (
+                          <SelectItem key={a} value={a.toString()}>
+                            {a}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
                 </div>
 
                 {/* Modelo */}
@@ -180,10 +206,10 @@ const Compra = () => {
             <Button
               size="lg"
               onClick={handleComprar}
-              disabled={!marca || !modelo}
+              disabled={!marca || !ano || !modelo}
               className="w-full bg-gradient-to-r from-[#FF8A00] to-[#F59E0B] hover:opacity-90 text-black font-bold text-xl py-8 rounded-2xl shadow-xl hover:scale-105 transition-transform disabled:opacity-50 disabled:hover:scale-100"
             >
-              Finalizar Compra via WhatsApp
+              Ir para Pagamento
             </Button>
 
             {/* Trust badges */}
