@@ -45,15 +45,15 @@ const Footer = () => {
             <ul className="space-y-3 text-sm text-white/70">
               <li className="flex items-start gap-2">
                 <Phone className="h-4 w-4 mt-1 flex-shrink-0 text-primary" />
-                <span>(11) 99999-9999</span>
+                <span>(92)995199578</span>
               </li>
               <li className="flex items-start gap-2">
                 <Mail className="h-4 w-4 mt-1 flex-shrink-0 text-primary" />
-                <span>contato@econoflex.com.br</span>
+                <span>econflexbrasil@gmail.com</span>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 mt-1 flex-shrink-0 text-primary" />
-                <span>São Paulo, SP - Brasil</span>
+                <span>XS AUTOMOTO LTDA - Av. Noel Nutels, 7291 - Loja 4 - Nova Cidade, Manaus - AM, 69090-000</span>
               </li>
             </ul>
           </div>

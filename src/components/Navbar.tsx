@@ -1,4 +1,4 @@
-import { Fuel } from "lucide-react";
+import { Fuel, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
@@ -21,15 +21,23 @@ const Navbar = () => {
         <div className="flex items-center gap-3">
           <Button 
             variant="ghost" 
-            className="text-white hover:text-primary hidden md:inline-flex"
+            className="bg-primary hover:bg-primary-dark text-black font-semibold"
             onClick={() => scrollToSection("pricing")}
           >
             Comprar agora
           </Button>
-          <Button 
-            className="bg-primary hover:bg-primary-dark text-black font-semibold"
-            onClick={() => window.open("https://wa.me/5511999999999?text=Quero%20ECONOFLEX", "_blank")}
+          <Button
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-[#25D366] to-[#128C7E] text-white font-semibold hover:opacity-95 hover:scale-105 transform transition-shadow shadow-lg shadow-[#128C7E]/20"
+            onClick={() =>
+              window.open(
+                "https://wa.me/5592995199578?text=Quero%20ECONOFLEX",
+                "_blank",
+                "noopener,noreferrer"
+              )
+            }
+            aria-label="Falar no WhatsApp"
           >
+            <MessageSquare className="h-4 w-4" />
             Falar no WhatsApp
           </Button>
         </div>

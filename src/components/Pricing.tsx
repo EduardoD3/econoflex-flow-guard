@@ -40,7 +40,7 @@ const Pricing = () => {
               </div>
               
               <div className="mb-2">
-                <span className="text-5xl md:text-6xl font-extrabold text-foreground">R$ 297</span>
+                <span className="text-5xl md:text-6xl font-extrabold text-foreground">R$ 118</span>
               </div>
               <p className="text-muted-foreground text-lg">à vista ou 12x sem juros</p>
             </div>

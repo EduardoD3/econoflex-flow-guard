@@ -36,16 +36,25 @@ const Compra = () => {
     citroen: ["C3", "C4 Cactus", "Aircross"],
   };
 
-  const modelosDisponiveis = marca ? marcas[marca as keyof typeof marcas] || [] : [];
+  const modelosDisponiveis = marca ? (marcas[marca as keyof typeof marcas] || []) : [];
+
+  // ---- ALTERAÇÃO MÍNIMA: configurar aqui a base do gateway de pagamento ----
+  // Substitua pela URL real do seu provedor (ex: "https://checkout.meugateway.com/checkout")
+  const PAYMENT_BASE = "https://comprasseguradaonline.store/c/ced37c2bb2";
+  // -------------------------------------------------------------------------
 
   const handleComprar = () => {
     if (!marca || !ano || !modelo) {
       alert("Por favor, preencha todos os campos do veículo.");
       return;
     }
-    
-    // Redirecionar para gateway de pagamento
-    window.location.href = `/checkout?marca=${encodeURIComponent(marca)}&ano=${encodeURIComponent(ano)}&modelo=${encodeURIComponent(modelo)}`;
+
+    const paymentUrl = `${PAYMENT_BASE}?marca=${encodeURIComponent(
+      marca
+    )}&ano=${encodeURIComponent(ano)}&modelo=${encodeURIComponent(modelo)}`;
+
+    // Abre em nova aba de forma segura
+    window.open(paymentUrl, "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -176,7 +185,7 @@ const Compra = () => {
                   </div>
                 </div>
                 <div className="text-right">
-                  <div className="text-3xl font-bold text-white">R$ 297</div>
+                  <div className="text-3xl font-bold text-white">R$ 118</div>
                   <div className="text-sm text-[#9CA3AF]">ou 12x sem juros</div>
                 </div>
               </div>
@@ -211,7 +220,6 @@ const Compra = () => {
             >
               Ir para Pagamento
             </Button>
-
             {/* Trust badges */}
             <div className="flex flex-wrap justify-center gap-6 mt-8 pt-6 border-t border-white/10">
               <div className="flex items-center gap-2 text-[#9CA3AF]">

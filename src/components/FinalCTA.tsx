@@ -32,8 +32,8 @@ const FinalCTA = () => {
             <Button 
               size="lg"
               variant="outline"
-              className="border-2 border-white/40 text-white hover:bg-white/10 hover:border-white font-bold text-xl px-10 py-8 rounded-2xl backdrop-blur-sm"
-              onClick={() => window.open("https://wa.me/5511999999999?text=Tenho%20dúvidas%20sobre%20o%20ECONOFLEX", "_blank")}
+              className="border-2 border-white/40 text-black hover:bg-white/40 hover:border-white font-bold text-xl px-10 py-8 rounded-2xl backdrop-blur-sm"
+              onClick={() => window.open("https://wa.me/5592995199578?text=Tenho%20dúvidas%20sobre%20o%20ECONOFLEX", "_blank")}
             >
               <MessageCircle className="mr-2 h-6 w-6" />
               Falar no WhatsApp
