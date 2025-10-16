@@ -45,7 +45,7 @@ const Benefits = () => {
             Por que escolher o ECONOFLEX?
           </h2>
           <p className="text-xl text-white/80 max-w-2xl mx-auto">
-            Tecnologia plug-and-play que entrega resultados reais
+            Tecnologia encaixe rápido que entrega resultados reais
           </p>
         </div>
         

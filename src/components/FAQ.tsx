@@ -13,7 +13,7 @@ const FAQ = () => {
     },
     {
       question: "Perde garantia?",
-      answer: "Não. A instalação é plug-and-play e não altera componentes críticos do veículo, preservando a garantia do fabricante.",
+      answer: "Não. A instalação é encaixe rápido e não altera componentes críticos do veículo, preservando a garantia do fabricante.",
     },
     {
       question: "Quanto tempo leva para instalar?",

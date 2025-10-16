@@ -15,7 +15,7 @@ const Footer = () => {
               <span className="text-xl font-bold">ECONOFLEX</span>
             </div>
             <p className="text-white/70 text-sm">
-              Economizador de Combustível com tecnologia plug-and-play
+              Economizador de Combustível com tecnologia encaixe rápido
             </p>
           </div>
           
