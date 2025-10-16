@@ -53,7 +53,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 mt-1 flex-shrink-0 text-primary" />
-                <span>XS AUTOMOTO LTDA - Av. Noel Nutels, 7291 - Loja 4 - Nova Cidade, Manaus - AM, 69090-000</span>
+                <span>XS AUTOMOTO  LTDA - Av. Noel Nutels, 7291 - Loja 4 - Nova Cidade, Manaus - AM, 69090-000</span>
               </li>
             </ul>
           </div>
