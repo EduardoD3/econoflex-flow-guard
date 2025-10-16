@@ -15,7 +15,6 @@ const Navbar = () => {
             <Fuel className="h-8 w-8 text-primary" />
             <div className="absolute -top-1 -right-1 w-2 h-2 bg-accent rounded-full" />
           </div>
-          <span className="text-xl font-bold text-white tracking-tight">ECONOFLEX</span>
         </div>
         
         <div className="flex items-center gap-3">
