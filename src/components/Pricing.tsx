@@ -1,7 +1,10 @@
 import { Check, Shield, MessageCircle, CreditCard } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const Pricing = () => {
+  const navigate = useNavigate();
+  
   const features = [
     "Produto ECONOFLEX original",
     "Instalação em menos de 10 minutos",
@@ -71,7 +74,7 @@ const Pricing = () => {
             <Button 
               size="lg"
               className="w-full bg-gradient-to-r from-primary to-primary-dark hover:opacity-90 text-black font-bold text-xl py-8 rounded-2xl shadow-xl hover:scale-105 transition-transform"
-              onClick={() => window.open("https://wa.me/5511999999999?text=Quero%20comprar%20o%20ECONOFLEX", "_blank")}
+              onClick={() => navigate("/compra")}
             >
               Comprar agora
             </Button>

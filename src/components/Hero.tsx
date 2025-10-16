@@ -1,8 +1,11 @@
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 import productHero from "@/assets/product-hero.png";
 
 const Hero = () => {
+  const navigate = useNavigate();
+  
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: "smooth" });
@@ -36,7 +39,7 @@ const Hero = () => {
               <Button 
                 size="lg"
                 className="bg-white hover:bg-white/90 text-black font-bold text-lg px-8 py-6 rounded-2xl shadow-2xl hover:scale-105 transition-transform"
-                onClick={() => scrollToSection("pricing")}
+                onClick={() => navigate("/compra")}
               >
                 Quero economizar agora
                 <ArrowRight className="ml-2 h-5 w-5" />

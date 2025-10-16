@@ -1,11 +1,9 @@
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const FinalCTA = () => {
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    element?.scrollIntoView({ behavior: "smooth" });
-  };
+  const navigate = useNavigate();
 
   return (
     <section className="py-20 bg-gradient-to-b from-primary via-primary-dark to-secondary relative overflow-hidden">
@@ -26,7 +24,7 @@ const FinalCTA = () => {
             <Button 
               size="lg"
               className="bg-white hover:bg-white/90 text-black font-bold text-xl px-10 py-8 rounded-2xl shadow-2xl hover:scale-105 transition-transform"
-              onClick={() => scrollToSection("pricing")}
+              onClick={() => navigate("/compra")}
             >
               Comprar agora
               <ArrowRight className="ml-2 h-6 w-6" />
