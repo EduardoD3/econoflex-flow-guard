@@ -90,10 +90,10 @@ const Compra = () => {
                     setMarca(value);
                     setModelo(""); // Reset modelo quando marca muda
                   }}>
-                    <SelectTrigger className="w-full h-12 bg-[#111827] border-white/20 text-white">
+                    <SelectTrigger className="w-full h-12 bg-secondary border-white/20 text-secondary-foreground">
                       <SelectValue placeholder="Selecione a marca" />
                     </SelectTrigger>
-                    <SelectContent className="bg-[#111827] border-white/20">
+                    <SelectContent className="border-white/20">
                       <SelectItem value="fiat">Fiat</SelectItem>
                       <SelectItem value="volkswagen">Volkswagen</SelectItem>
                       <SelectItem value="chevrolet">Chevrolet</SelectItem>
@@ -120,10 +120,10 @@ const Compra = () => {
                     onValueChange={setModelo}
                     disabled={!marca}
                   >
-                    <SelectTrigger className="w-full h-12 bg-[#111827] border-white/20 text-white disabled:opacity-50">
+                    <SelectTrigger className="w-full h-12 bg-secondary border-white/20 text-secondary-foreground disabled:opacity-50">
                       <SelectValue placeholder={marca ? "Selecione o modelo" : "Selecione a marca primeiro"} />
                     </SelectTrigger>
-                    <SelectContent className="bg-[#111827] border-white/20">
+                    <SelectContent className="border-white/20">
                       {modelosDisponiveis.map((m) => (
                         <SelectItem key={m} value={m}>
                           {m}
